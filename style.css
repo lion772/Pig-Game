@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+body {
+  background: linear-gradient(to top left, #753682 0%, #bf2e34 100%);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 400;
+  width: 1280px;
+  height: 100vh;
+  display: flex;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 162%;
+}
+
+main {
+  width: 100rem;
+  position: absolute;
+  left: 20%;
+}
+
+.first-block {
+  float: left;
+  width: 50rem;
+  height: 100vh;
+  background-color: #371d26;
+  filter: brightness(210%);
+  transform: translate(-24%);
+  text-align: center;
+}
+
+.second-block {
+  float: left;
+  width: 50rem;
+  background-color: #552236;
+  filter: brightness(180%);
+  height: 100vh;
+  transform: translate(-24%);
+  text-align: center;
+  z-index: 1;
+}
+
+h1 {
+  letter-spacing: 3px;
+  word-spacing: 2px;
+  padding-top: 7rem;
+  text-transform: uppercase;
+}
+
+.mainTitle {
+  font-size: 110%;
+}
+
+.score {
+  font-size: 9rem;
+  color: rgb(196, 72, 107);
+}
+
+.current {
+  background-color: rgb(200, 43, 88);
+  filter: brightness(75%);
+  width: 20rem;
+  margin: 10rem 15rem;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 5px 4px;
+}
+
+.current-label {
+  font-size: 1.7rem;
+  text-transform: uppercase;
+}
+
+.current-score {
+  font-size: 2.9rem;
+}
+
+.btn {
+  width: 15rem;
+  background-color: rgba(255, 255, 255, 0.6);
+  z-index: 2;
+}
+
+.btn.btn--new {
+  position: absolute;
+  left: 29rem;
+  top: 4rem;
+  font-size: 1.7rem;
+  letter-spacing: 1px;
+  word-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 40px;
+  width: 18rem;
+  padding: 14px;
+}
+
+.btn.btn--roll {
+  position: absolute;
+  top: 37rem;
+  left: 28rem;
+  font-size: 1.7rem;
+  letter-spacing: 1px;
+  word-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 40px;
+  width: 19rem;
+  padding: 14px;
+}
+
+.btn.btn--hold {
+  position: absolute;
+  top: 43rem;
+  left: 30rem;
+  font-size: 1.7rem;
+  letter-spacing: 1px;
+  word-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 40px;
+  width: 15rem;
+  padding: 14px;
+}
+
+.dice {
+  width: 10rem;
+  position: absolute;
+  left: 33rem;
+  top: 16rem;
+  z-index: 1;
+}
