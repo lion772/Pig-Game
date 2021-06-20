@@ -15,5 +15,33 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <main>
+        <button class="btn btn--new">🔃 New Game</button>
+        <button class="btn btn--roll">🎲 Roll dice</button>
+        <button class="btn btn--hold">📥 Hold</button>
+        <img src="dice-5.png" alt="dice" class="dice" />
+
+        <section class="first-block">
+          <h1><span class="mainTitle"> Player 1</span></h1>
+          <p class="score" id="score--0">0</p>
+
+          <div class="current">
+            <p class="current-label">Current</p>
+            <p class="current-score" id="current--1">0</p>
+          </div>
+        </section>
+        <section class="second-block">
+          <h1><span class="mainTitle"> Player 2</span></h1>
+          <p class="score" id="score--1">0</p>
+
+          <div class="current">
+            <p class="current-label">Current</p>
+            <p class="current-score" id="current--1">0</p>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
 </html>
