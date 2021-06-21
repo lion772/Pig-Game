@@ -7,6 +7,9 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
     <title>Pig Game</title>
 
+    <!-- Jquery -->
+    <script type="text/javascript" src="jquery.min.js"></script>
+
     <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
@@ -18,7 +21,7 @@
   <body>
     <div class="container">
       <main>
-        <button class="btn btn--new">🔃 New Game</button>
+        <button class="btn btn--new to-center">🔃 New Game</button>
         <button class="btn btn--roll">🎲 Roll dice</button>
         <button class="btn btn--hold">📥 Hold</button>
         <img src="dice-5.png" alt="dice" class="dice" />
@@ -29,7 +32,7 @@
 
           <div class="current">
             <p class="current-label">Current</p>
-            <p class="current-score" id="current--1">0</p>
+            <p class="current-score" id="current--0">0</p>
           </div>
         </section>
         <section class="second-block">
@@ -43,5 +46,6 @@
         </section>
       </main>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
