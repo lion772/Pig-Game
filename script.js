@@ -1,5 +1,6 @@
 'use strict';
 
+alert(document.querySelector('#current--0'));
 const currentLabel = document.querySelector('.current-label');
 const rollDice = document.querySelector('.btn--roll');
 const newGame = document.querySelector('.btn--new');
@@ -89,3 +90,40 @@ const holdScore = () => {
 };
 
 hold.addEventListener('click', holdScore);
+
+let removeClass = false;
+
+$('.btn--new').click(function () {
+  if (!removeClass) {
+    $(this).addClass('to-top');
+    removeClass = true;
+  } else {
+    removeClassFuntion();
+    removeClass = false;
+  }
+});
+
+$('.btn--roll').click(function () {
+  if (!removeClass) {
+    $(this).addClass('to-top');
+    removeClass = true;
+  } else {
+    removeClassFuntion();
+    removeClass = false;
+  }
+});
+$('.btn--hold').click(function () {
+  if (!removeClass) {
+    $(this).addClass('to-top');
+    removeClass = true;
+  } else {
+    removeClassFuntion();
+    removeClass = false;
+  }
+});
+
+function removeClassFuntion() {
+  $('.btn--new').removeClass('to-top');
+  $('.btn--roll').removeClass('to-top');
+  $('.btn--hold').removeClass('to-top');
+}
