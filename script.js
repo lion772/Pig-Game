@@ -1,6 +1,6 @@
 'use strict';
 
-const currentLabel = document.querySelector('.current-label');
+//Selecting elements
 const rollDice = document.querySelector('.btn--roll');
 const newGame = document.querySelector('.btn--new');
 const hold = document.querySelector('.btn--hold');
@@ -10,38 +10,35 @@ const current0 = document.querySelector('#current--0');
 const current1 = document.querySelector('#current--1');
 const image = document.querySelector('.dice');
 
-const playerCurrent0 = () => (current0.textContent = 0);
-const playerCurrent1 = () => (current1.textContent = 0);
+//Starting conditions
 const playerScore0 = () => (score0.textContent = 0);
 const playerScore1 = () => (score1.textContent = 0);
 playerScore0();
 playerScore1();
 let isPlayer1 = false;
+let actualPlayer;
 let randomNumber;
+let currentNumber = 0;
+let scoreNumber1 = 0;
+let scoreNumber0 = 0;
+let score = 0;
 
-const rollDiceNow = function () {
+//Rolling dice functionality
+rollDice.addEventListener('click', function () {
+  //Generating a random dice roll
   randomNumber = Math.ceil(Math.random() * 6);
-  let currentNumber1 = Number(current1.textContent);
-  let currentNumber0 = Number(current0.textContent);
-  let scoreNumber1 = Number(score1.textContent);
-  let scoreNumber0 = Number(score0.textContent);
+  actualPlayer = isPlayer1 ? 1 : 0;
 
   if (scoreNumber1 < 99 && scoreNumber0 < 99) {
-    if (isPlayer1) {
-      if (randomNumber === 1) {
-        playerCurrent1();
-        isPlayer1 = false;
-      } else if (randomNumber) {
-        current1.textContent = currentNumber1 + randomNumber;
-      }
+    if (randomNumber === 1) {
+      document.querySelector(`#current--${actualPlayer}`).textContent = 0;
+      currentNumber = 0;
+      isPlayer1 = !isPlayer1;
     } else {
-      if (randomNumber === 1) {
-        playerCurrent0();
-        isPlayer1 = true;
-      } else if (randomNumber) {
-        current0.textContent = currentNumber0 + randomNumber;
-      }
+      document.querySelector(`#current--${actualPlayer}`).textContent =
+        currentNumber += randomNumber;
     }
+    image.src = `dice-${randomNumber}.png`;
   } else {
     if (scoreNumber0 >= 100) {
       alert('Player 1 has won!');
@@ -49,10 +46,7 @@ const rollDiceNow = function () {
       alert('Player 2 has won!');
     }
   }
-  image.src = `dice-${randomNumber}.png`;
-};
-
-rollDice.addEventListener('click', rollDiceNow);
+});
 
 const startNewGame = () => {
   playerScore0();
@@ -63,32 +57,24 @@ const startNewGame = () => {
 
 newGame.addEventListener('click', startNewGame);
 
-const holdScore = () => {
-  let currentInNumber0 = Number(current0.textContent);
-  let currentInNumber1 = Number(current1.textContent);
-  let scoreNumber1 = Number(score1.textContent);
-  let scoreNumber0 = Number(score0.textContent);
+hold.addEventListener('click', function () {
+  score += currentNumber;
+  actualPlayer ? (scoreNumber1 += score) : (scoreNumber0 += score);
+  console.log(scoreNumber1, scoreNumber0);
+  document.querySelector(`#score--${actualPlayer}`).textContent =
+    Number(document.querySelector(`#score--${actualPlayer}`).textContent) +
+    score;
+  isPlayer1 = !isPlayer1;
+  document.querySelector(`#current--${actualPlayer}`).textContent = 0;
+  currentNumber = 0;
+  score = 0;
 
-  if (currentInNumber0 > 0 || currentInNumber1 > 0) {
-    if (isPlayer1) {
-      score1.textContent = Number(score1.textContent) + currentInNumber1;
-      isPlayer1 = false;
-      current1.textContent = 0;
-    } else {
-      score0.textContent = Number(score0.textContent) + currentInNumber0;
-      isPlayer1 = true;
-      current0.textContent = 0;
-    }
-  }
-
-  if (Number(score0.textContent) >= 100) {
+  if (scoreNumber0 >= 100) {
     alert('Player 1 has won!');
-  } else if (Number(score1.textContent) >= 100) {
+  } else if (scoreNumber1 >= 100) {
     alert('Player 2 has won!');
   }
-};
-
-hold.addEventListener('click', holdScore);
+});
 
 let removeClass = false;
 
