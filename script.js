@@ -1,6 +1,5 @@
 'use strict';
 
-alert(document.querySelector('#current--0'));
 const currentLabel = document.querySelector('.current-label');
 const rollDice = document.querySelector('.btn--roll');
 const newGame = document.querySelector('.btn--new');
