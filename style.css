@@ -29,12 +29,25 @@ main {
   left: 20%;
 }
 
+.player {
+  flex: 10% !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.75s;
+}
+
+.player.player--active {
+  background-color: #8080802a;
+}
+
 .first-block {
   float: left;
   width: 50rem;
   height: 100vh;
-  background-color: #371d26;
-  filter: brightness(210%);
+  color: #fff;
+  background-color: #47222f;
+  filter: brightness(150%);
   transform: translate(-24%);
   text-align: center;
 }
@@ -42,8 +55,9 @@ main {
 .second-block {
   float: left;
   width: 50rem;
-  background-color: #552236;
-  filter: brightness(180%);
+  color: #fff;
+  background-color: #61183598;
+  filter: brightness(120%);
   height: 100vh;
   transform: translate(-24%);
   text-align: center;
